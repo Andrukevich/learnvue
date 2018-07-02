@@ -1,14 +1,30 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:v-on="http://www.w3.org/1999/xhtml" xmlns:v-bind="http://www.w3.org/1999/xhtml">
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
+    <link rel="stylesheet" href="css/main.css">
 </head>
 <body>
 <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
 
 <div id="app">
+
+    <span v-on:click="title='TEXT'">TEXT1</span>
+    <span @click="title='TEXT'">TEXT2</span>
+
+    <span v-on:mouseover="title='mouseover'">TEXT3</span>
+    <span @mouseover="title='mouseover'">TEXT4</span>
+
+    <span v-on:mouseover="changeText">TEXT5</span>
+
     <p>{{ title }}</p>
+
+    <p v-bind:class="styleCSS">Color {{ styleCSS }}</p>
+    <p :class="styleCSS">Color {{ styleCSS }}</p>
+
+    <input type="text" v-on:input="styleCSS=$event.target.value">
+
 </div>
 
 <script src="js/main.js"></script>
