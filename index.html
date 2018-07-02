@@ -30,6 +30,15 @@
     <p>{{ value }}</p>
     <p>{{ doubleValue }}</p>
 
+    <button v-on:click="show = !show">Show / Hide</button>
+    <p v-if="show">This's text which can be invisible. TEXT 1</p>
+    <p v-else="show">This's text which can be invisible. TEXT 2</p>
+    <p v-show="show">This's text which can be invisibleTEXT 3</p>
+
+    <ul>
+        <li v-for="(car, i) in cars">{{ i + 1 }} - {{ car.model }}, speed {{ car.speed }}</li>
+    </ul>
+
 </div>
 
 <script src="js/main.js"></script>
