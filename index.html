@@ -47,6 +47,18 @@
     <p v-if="show">This's text which can be invisible. TEXT 4</p>
     <p v-else>{{ message | lowercase | capitalise }}</p>
 
+    <div class="car" v-for="(car, i) in cars2">
+        <p>{{ car.model }}</p>
+    </div>
+
+    <comp-car></comp-car>
+    <comp-car></comp-car>
+
+</div>
+
+<div id="app2">
+    <hr>
+    <comp-car></comp-car>
 </div>
 
 <script src="js/main.js"></script>
