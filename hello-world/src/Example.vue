@@ -1,7 +1,7 @@
 <template>
     <div class="example">
-        <h1>Start text!</h1>
-        <app-input></app-input>
+        <h1>{{ message }}</h1>
+        <app-input :msg="message" @messChange="message = $event"></app-input>
     </div>
 </template>
 
@@ -9,6 +9,11 @@
     import Input from './components/Field.vue'
 
     export default {
+        data: function () {
+            return {
+                message: "Simple Text!!!XXX@@@"
+            }
+        },
         components: {
             "app-input": Input
         }
