@@ -3,6 +3,28 @@ if (!value) return "";
 value = value.toString();
 return value.replace(/\b\w/g, function (l) {return l.toUpperCase()});
 });
+
+Vue.component("comp-car", {
+    data: function () {
+        return {
+            cars3 : [
+                {model : "BMW"},
+                {model : "Audi"},
+                {model : "Mercedes-Benz AMG"},
+                {model : "Ford"},
+                {model : "Volvo"},
+                {model : "Siat"},
+                {model : "Fiat"},
+            ],
+        }
+    },
+    template : '<div>' +
+    '<div class="car" v-for="(car, i) in cars3">' +
+    '<p>{{ car.model }}</p>' +
+    '</div>' +
+    '</div>'
+});
+
 new Vue({
     el : "#app",
     data : {
@@ -18,6 +40,15 @@ new Vue({
             {model : "Ford", speed : 160.5},
         ],
         message : "Hello world, hello",
+        cars2 : [
+            {model : "BMW"},
+            {model : "Audi"},
+            {model : "Mercedes-Benz AMG"},
+            {model : "Ford"},
+            {model : "Volvo"},
+            {model : "Siat"},
+            {model : "Fiat"},
+        ],
     },
     methods : {
         changeText () {
@@ -44,5 +75,25 @@ new Vue({
         lowercase (value) {
             return value.toLowerCase();
         }
+    },
+    components : {
+        "comp-car" : {
+            data: function () {
+                return {
+                    cars3 : [
+                        {model : "BMW"},
+                    ],
+                }
+            },
+            template : '<div>' +
+            '<div class="car" v-for="(car, i) in cars3">' +
+            '<p>{{ car.model }}</p>' +
+            '</div>' +
+            '</div>'
+        }
     }
+});
+
+new Vue({
+    el : "#app2",
 });
